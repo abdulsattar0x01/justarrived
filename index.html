@@ -38,19 +38,18 @@
     .container {
       max-width: 1100px;
       margin: auto;
-      padding: 4rem 1.5rem;
+      padding: 3.5rem 1.5rem;
     }
 
     /* HEADER */
     header {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      justify-content: center;
       margin-bottom: 3rem;
     }
 
     .logo {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 600;
     }
 
@@ -58,16 +57,10 @@
       color: var(--accent);
     }
 
-    .nav a {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-left: 1.2rem;
-    }
-
     /* HERO */
     .hero {
       text-align: center;
-      max-width: 750px;
+      max-width: 760px;
       margin: auto;
     }
 
@@ -82,22 +75,22 @@
     }
 
     h1 {
-      font-size: 2.6rem;
+      font-size: clamp(2rem, 4vw, 2.6rem);
       margin-bottom: 1rem;
     }
 
     .hero p {
       color: var(--muted);
       font-size: 1.05rem;
-      margin-bottom: 2.2rem;
+      margin-bottom: 2rem;
     }
 
     /* SIGNUP */
     .signup {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.6rem;
+      border-radius: 18px;
+      padding: 1.8rem;
     }
 
     .signup h3 {
@@ -116,17 +109,24 @@
       flex-wrap: wrap;
     }
 
-    input[type="email"] {
+    input,
+    textarea {
       flex: 1;
-      padding: 0.7rem 0.9rem;
+      padding: 0.75rem 0.9rem;
       border-radius: 12px;
       border: 1px solid var(--border);
       background: #020617;
       color: var(--text);
+      min-width: 220px;
+    }
+
+    textarea {
+      resize: none;
+      min-height: 100px;
     }
 
     button {
-      padding: 0.7rem 1.3rem;
+      padding: 0.75rem 1.4rem;
       border-radius: 12px;
       border: none;
       background: var(--accent);
@@ -136,37 +136,37 @@
     }
 
     /* FEATURES */
-    .features {
+    .section {
       margin-top: 5rem;
       text-align: center;
     }
 
-    .features h2 {
-      font-size: 2.1rem;
+    .section h2 {
+      font-size: clamp(1.8rem, 3vw, 2.1rem);
       margin-bottom: 0.5rem;
     }
 
-    .features > p {
+    .section > p {
       color: var(--muted);
       margin-bottom: 3rem;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.6rem;
     }
 
     .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 1.6rem;
+      border-radius: 20px;
+      padding: 1.7rem;
       text-align: left;
     }
 
     .card h4 {
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
     .card p {
@@ -174,38 +174,36 @@
       color: var(--muted);
     }
 
+    /* SUGGESTIONS */
+    .suggestions {
+      margin-top: 5rem;
+      max-width: 720px;
+      margin-inline: auto;
+    }
+
     /* FOOTER */
     footer {
       margin-top: 6rem;
       border-top: 1px solid var(--border);
       padding: 2.5rem 1.5rem;
+      text-align: center;
     }
 
-    .footer-grid {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-    }
-
-    footer h5 {
-      margin-bottom: 0.8rem;
-      font-size: 0.95rem;
-    }
-
-    footer a {
-      display: block;
+    footer p {
       color: var(--muted);
       font-size: 0.85rem;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.6rem;
     }
 
-    .copyright {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.8rem;
-      color: var(--muted);
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .signup {
+        padding: 1.4rem;
+      }
+
+      button {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -214,7 +212,6 @@
   <section class="container">
     <header>
       <div class="logo">just<span>arrived</span>.pk</div>
-    
     </header>
 
     <div class="hero">
@@ -223,15 +220,15 @@
       <h1>Your First Guide to Living in Pakistan</h1>
 
       <p>
-        A simple, trustworthy resource for expats, digital nomads,
+        A simple, trustworthy place for expats, digital nomads,
         students, and newcomers — everything you need to settle smoothly.
       </p>
 
       <div class="signup">
         <h3>Be Part of Our Journey</h3>
         <p>
-          Join our community of expats, digital nomads, and newcomers.
-          Be the first to know when we launch. No spam, we promise.
+          Join our community and be the first to know when we launch.
+          No spam — ever.
         </p>
 
         <form>
@@ -241,67 +238,56 @@
       </div>
     </div>
 
-    <div class="features">
-      <h2>Everything You’ll Need</h2>
-      <p>Clear guidance for every step of your journey.</p>
+    <!-- FEATURES -->
+    <div class="section">
+      <h2>What We’re Building</h2>
+      <p>Practical information you’ll actually need.</p>
 
       <div class="grid">
         <div class="card">
           <h4>Housing & Accommodation</h4>
-          <p>Renting, neighborhoods, utilities, and avoiding common pitfalls.</p>
+          <p>Renting, neighborhoods, utilities, and avoiding scams.</p>
         </div>
         <div class="card">
           <h4>Jobs & Careers</h4>
-          <p>Work permits, freelancing, salaries, and job search tips.</p>
+          <p>Work permits, freelancing, salaries, and local hiring norms.</p>
         </div>
         <div class="card">
           <h4>Visas & Documents</h4>
-          <p>Step-by-step help for visas, residence, and official paperwork.</p>
+          <p>Clear guides for visas, permits, and official paperwork.</p>
         </div>
         <div class="card">
           <h4>Education</h4>
-          <p>Universities, schools, admissions, and student life in Pakistan.</p>
+          <p>Universities, schools, admissions, and student life.</p>
         </div>
         <div class="card">
           <h4>Healthcare</h4>
-          <p>Hospitals, clinics, insurance basics, and healthcare access.</p>
+          <p>Hospitals, clinics, and navigating the medical system.</p>
         </div>
         <div class="card">
           <h4>Culture & Lifestyle</h4>
-          <p>Food, traditions, etiquette, safety, and daily life insights.</p>
+          <p>Food, traditions, etiquette, and daily life tips.</p>
         </div>
       </div>
+    </div>
+
+    <!-- SUGGESTIONS -->
+    <div class="signup suggestions">
+      <h3>Send Us Your Suggestions</h3>
+      <p>
+        What information would help you the most when arriving in Pakistan?
+      </p>
+
+      <form>
+        <textarea placeholder="Share your ideas or suggestions..."></textarea>
+        <button type="submit">Send Feedback</button>
+      </form>
     </div>
   </section>
 
   <footer>
-    <div class="footer-grid">
-      <div>
-        <h5>JustArrived.pk</h5>
-        <a href="#">About</a>
-        <a href="#">Our Mission</a>
-        <a href="#">Contact</a>
-      </div>
-
-      <div>
-        <h5>Resources</h5>
-        <a href="#">Housing</a>
-        <a href="#">Jobs</a>
-        <a href="#">Visas</a>
-        <a href="#">Education</a>
-      </div>
-
-      <div>
-        <h5>Community</h5>
-        <a href="#">Instagram</a>
-        <a href="#">Reddit</a>
-        <a href="#">Newsletter</a>
-      </div>
-    </div>
-
-    <div class="copyright">
-      © 2026 JustArrived.pk — All rights reserved
-    </div>
+    <p>© 2026 JustArrived.pk</p>
+    <p>Built for people new to Pakistan 🇵🇰</p>
   </footer>
 </body>
 </html>
